@@ -1,23 +1,43 @@
-name: Build and Deploy Jekyll
+name: Deploy Jekyll site to Pages
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'   # use Ruby 3.2+ so Bundler 2.7.x (BUNDLED WITH) can install
+          ruby-version: '3.2'
           bundler-cache: true
+
+      - name: Add linux platform to Gemfile.lock
+        run: bundle lock --add-platform x86_64-linux
+
       - run: bundle install
-      - run: bundle exec jekyll build --trace
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - run: bundle exec jekyll build --baseurl "" --trace   # user/org site => empty baseurl
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: _site
+          path: _site
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
