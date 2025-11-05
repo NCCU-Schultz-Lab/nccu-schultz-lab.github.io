@@ -2,8 +2,7 @@
 
 ## Acknowledgment
 
-I credit the [Allen Lab](https://www.allanlab.org/) for creating a beautiful academic research group webpage.
-Many parts of this site were adopted or copied from their laboratory webpage.
+I credit[Prof. Bryngelson](https://github.com/sbryngelson/academic-website-template) for providing the base template for this website!
 
 ## License
 
