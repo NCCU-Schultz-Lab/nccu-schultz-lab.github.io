@@ -1,10 +1,8 @@
 ---
 layout: default
-title: Schultz Lab at NCCU
+title: Welcome to Schultz Lab Webpage!
 ---
 
-# Website under construction
-Thanks for stopping by—our site is coming soon.
+# Welcome! 
 
-- GitHub: <a href="https://github.com/NCCU-Schultz-Lab" target="_blank" rel="noopener">NCCU-Schultz-Lab</a>
-- RSS feed: <a href="{{ '/feed.xml' | relative_url }}">feed.xml</a>
+## Check out our research at the interface of spectroscopy, theory, and artificial intelligence

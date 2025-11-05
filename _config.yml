@@ -1,7 +1,8 @@
 title: Schultz Lab at NCCU
 email: jschult3@nccu.edu
+logo: "/assets/images/logo.png"
 description: >- 
-  Research in spectroscopy and quantum dynamics at North Carolina Central University.
+  Research in spectroscopy, quantum dynamics, and machine learning at North Carolina Central University.
   Updates, teaching resources, and lab news.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://nccu-schultz-lab.github.io" # the base hostname & protocol for your site, e.g. http://example.com
