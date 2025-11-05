@@ -1,0 +1,22 @@
+<header class="site-header" role="banner">
+  <div class="wrap">
+    <div class="brand">
+      <a class="site-logo" href="{{ '/' | relative_url }}">
+        <img src="{{ site.logo | default: '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }} logo">
+      </a>
+      <div class="site-title-meta">
+        <!-- keep the H1 for accessibility (screen readers) but hide it visually; the logo provides the visible branding -->
+        <h1 class="site-title visually-hidden"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="{{ '/people/' | relative_url }}">People</a></li>
+        <li><a href="{{ '/values/' | relative_url }}">Values</a></li>
+        <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+        <li><a href="{{ '/teaching/' | relative_url }}">Teaching</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

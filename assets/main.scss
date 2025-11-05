@@ -1,0 +1,222 @@
+---
+---
+@import "minima";
+
+/*
+	Footer column widths
+
+	You can control footer column widths from code (no UI) by editing
+	`_data/footer.yml`. Values for `left` and `right` are numeric
+	fractions (they become `fr` units). The `center` column may be
+	set to `auto` or a numeric value.
+
+	Example (`_data/footer.yml`):
+
+		left: 1
+		center: auto
+		right: 1.5
+
+	This file is read by Jekyll and the values are injected into the
+	compiled CSS variables below. Change values and rebuild to apply.
+*/
+
+/* SCSS palette and helpers: define a small palette and compute variants with Sass,
+	 then export them as CSS custom properties so you can use `var(--brand)` everywhere. */
+
+/* Base colors (SCSS variables for color math) */
+$brand: #880023;
+$accent: #8e9093;
+$muted: #7e3838;
+$bg: #ffffff;
+
+/* Computed variants */
+$brand-dark: darken($brand, 10%);
+$brand-darker: darken($brand, 18%);
+$brand-light: lighten($brand, 30%);
+$accent-dark: darken($accent, 8%);
+$accent-light: lighten($accent, 25%);
+
+/* Semantic colors */
+$success: #2a9d8f;
+$warning: #f4a261;
+$danger: #e63946;
+
+/* Helper: export an RGB triplet for translucent gradients */
+@function hex-to-rgb($color) {
+	@return red($color), green($color), blue($color);
+}
+
+:root {
+	--brand: #{$brand};
+	--brand-dark: #{$brand-dark};
+	--brand-darker: #{$brand-darker};
+	--brand-light: #{$brand-light};
+	--accent: #{$accent};
+	--accent-dark: #{$accent-dark};
+	--accent-light: #{$accent-light};
+	--muted: #{$muted};
+	--bg: #{$bg};
+
+	--success: #{$success};
+	--warning: #{$warning};
+	--danger: #{$danger};
+
+	/* RGB triplet for translucent backgrounds: e.g. rgba(var(--brand-rgb), 0.08) */
+	--brand-rgb: #{hex-to-rgb($brand)};
+
+	/* Footer column width variables (values come from _data/footer.yml if present) */
+	--footer-col-left: {{ site.data.footer.left | default: 1 }}fr;
+	--footer-col-center: {{ site.data.footer.center | default: 'auto' }};
+	--footer-col-right: {{ site.data.footer.right | default: 1 }}fr;
+	/* optional min-height for the footer row; set in `_data/footer.yml` as any CSS length (e.g. '4rem' or '60px') or 'auto' */
+	--footer-min-height: {{ site.data.footer.height | default: 'auto' }};
+}
+
+/* Example overrides and hero styling */
+body {
+	background: var(--bg);
+	color: #222;
+}
+
+/* Hero block */
+.hero {
+	padding: 3rem 1rem;
+	/* use the exported brand RGB for a translucent gradient driven by the palette */
+	background: linear-gradient(180deg, rgba(var(--brand-rgb), 0.06), transparent);
+	border-radius: 6px;
+	margin-bottom: 1.5rem;
+}
+.hero h1 { color: var(--brand); margin-bottom: .25rem; }
+.hero .tagline { color: var(--muted); margin-bottom: .75rem; }
+
+
+/* Buttons (simple) */
+a.button {
+	background: var(--brand);
+	color: white;
+	padding: .45rem .75rem;
+	border-radius: 4px;
+	text-decoration: none;
+}
+a.button.secondary {
+	background: var(--accent);
+}
+
+/* Small helper for images */
+.hero-img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin-top: 1rem;
+}
+
+.site-logo img { max-height: 96px; display: inline-block; vertical-align: middle; }
+.site-title-meta { display: inline-block; margin-left: 0.75rem; vertical-align: middle; }
+
+/* Responsive logo sizing and centered header */
+.site-header .wrap {
+	display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* constrain header content and add side padding so logo/title don't touch the edges */
+.site-header .wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Brand (logo + title) and site navigation styles */
+.brand { display: flex; align-items: center; gap: 0.85rem; }
+.site-title-meta { margin: 0; }
+.site-title { font-size: 1.25rem; margin: 0; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+.site-nav a { color: inherit; text-decoration: none; font-weight: 500; }
+.site-nav a:hover, .site-nav a:focus { text-decoration: underline; }
+
+/* Utility: visually-hidden (keeps content available to screen readers but hides it visually) */
+.visually-hidden {
+	position: absolute !important;
+	height: 1px; width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+	border: 0; padding: 0; margin: -1px;
+}
+
+@media (max-width: 700px) {
+	.site-nav { display: none; } /* keep header simple on small screens; add a mobile nav later if needed */
+}
+
+.site-logo img {
+	max-height: 72px; /* mobile default */
+}
+@media (min-width: 900px) {
+	.site-logo img { max-height: 140px; }
+}
+
+/* Footer grid: left contact, center links, right description */
+.site-footer {
+	padding: 1.25rem 1rem; /* reduced vertical padding for a denser footer */
+	/* allow a configurable minimum vertical height; override via `_data/footer.yml` */
+	min-height: var(--footer-min-height);
+	border-top: 1px solid rgba(0,0,0,0.06);
+	font-size: 0.95rem;
+}
+
+.footer-grid {
+	display: grid;
+	/* use CSS variables so widths can be adjusted in code */
+	grid-template-columns: var(--footer-col-left) var(--footer-col-center) var(--footer-col-right);
+	/* align items to the top so column tops match (avoids visual 'staircase') */
+	align-items: start;
+	gap: 0.75rem; /* tightened spacing */
+}
+.footer-left { justify-self: start; }
+.footer-center { justify-self: center; }
+.footer-center a { white-space: nowrap; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 0.5rem; }
+.footer-right { justify-self: end; text-align: right; }
+
+/* Make the right column wider (controlled via _data/footer.yml) and allow the description to wrap naturally. */
+.footer-right .site-description {
+  margin: 0;
+}
+
+/* Footer typography spacing reductions */
+.footer-left .footer-title { margin: 0 0 0.25rem 0; font-size: 1rem; }
+.footer-left .footer-contact { margin: 0; }
+.footer-right .site-description { margin: 0; line-height: 1.4; }
+
+/* Make each footer column a flex container and vertically center their contents to avoid staircase layout */
+.footer-left,
+.footer-center,
+.footer-right {
+	display: flex;
+	flex-direction: column; /* stack items inside each column */
+	justify-content: flex-start; /* stack from the top (avoid centering that can create a staircase) */
+}
+.footer-left { align-items: flex-start; }
+.footer-center { align-items: center; }
+.footer-right { align-items: flex-end; }
+
+/* Normalize margins inside footer so differing default margins don't shift alignment */
+.footer-grid h3,
+.footer-grid p { margin: 0; }
+
+/* GitHub icon sizing */
+.github-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; fill: currentColor; }
+.github-link { color: inherit; text-decoration: none; }
+.github-text { vertical-align: middle; }
+
+/* Reduce duplicate-looking spacing for small screens */
+@media (max-width: 700px) {
+	.footer-grid { grid-template-columns: 1fr; text-align: left; }
+	.footer-right { justify-self: start; text-align: left; max-width: 100%; }
+	.site-logo img { max-height: 64px; }
+	.site-header .wrap { justify-content: flex-start; }
+}
+
+/* ensure main content aligns with header/footer widths */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
