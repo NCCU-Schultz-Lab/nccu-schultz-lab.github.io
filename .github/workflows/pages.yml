@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'   # or 3.0; anything compatible with your Gemfile
+          ruby-version: '3.2'   # use Ruby 3.2+ so Bundler 2.7.x (BUNDLED WITH) can install
           bundler-cache: true
       - run: bundle install
       - run: bundle exec jekyll build --trace
