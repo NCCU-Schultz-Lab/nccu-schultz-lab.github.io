@@ -1,17 +1,18 @@
-- name: Dr. Richard Feynman
+- name: Dr. Jonathan Schultz
   photo: headshot.jpg
-  info: Richard C. Tolman Professor, California Institute of Technology
-  email: richard@university.edu
-  github: https://github.com/
-  researchgate: https://www.researchgate.net/
-  scholar: https://scholar.google.com/citations?user=B7vSqZsAAAAJ
-  cv: cv/cv.pdf
+  info: Assistant Professor of Chemistry
+  email: jschult3@nccu.edu
+  github: https://github.com/NCCU-Schultz-Lab
+  researchgate: https://www.researchgate.net/profile/Jonathan-Schultz-2
+  scholar: https://scholar.google.com/citations?user=SWEAy34AAAAJ&hl=en
+  cv: images/cv.pdf
   # Change the items in "education" you have (up to 6)
   education:
     [
-      "(1942) Ph.D. Physics, Princeton University",
-      "(1939) B.S. Physics, Massachusetts Institute of Technology",
+      "(2022) Ph.D. Chemistry, Northwestern University",
+      "(2017) B.S. Chemistry, University of Minnesota-Twin Cities",
+      "(2017) B.S. Chemical Engineering, University of Minnesota-Twin Cities",
     ]
 
   educationshort:
-    ["(1942) Ph.D. Physics, Princeton", "(1939) B.S. Physics, MIT"]
+    ["(2022) Ph.D. Chemistry, Northwestern University", "(2017) B.S. Chemistry, University of Minnesota-Twin Cities", "(2017) B.S. Chemical Engineering, University of Minnesota-Twin Cities"]

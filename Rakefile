@@ -25,12 +25,13 @@ task :publish => [:generate] do
     pwd = Dir.pwd
     Dir.chdir tmp
 
-    system "git init"
-    system "git add ."
-    message = "Site updated at #{Time.now.utc}"
-    system "git commit -m #{message.inspect}"
-    system "git remote add origin git@github.com:sbryngelson/bryngelson_personal_template.git"
-    system "git push origin master --force"
+    # system "git init"
+    # system "git add ."
+    # message = "Site updated at #{Time.now.utc}"
+    message = "Error - Uncomment lines in Rakefile if needed"
+    # system "git commit -m #{message.inspect}"
+    # system "git remote add origin git@github.com:NCCU-Schultz-Lab/nccu-schultz-lab.github.io.git"
+    # system "git push origin master --force"
 
     Dir.chdir pwd
   end
