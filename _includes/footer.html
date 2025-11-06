@@ -10,7 +10,15 @@
 
 		<div class="col-sm-4">
 		    <h5>Contact</h5>	
-            <p>{{ site.contact }}</p>
+						<p>{{ site.contact }}</p>
+						{% assign pi = site.data.pi | first %}
+						<p>
+							{% if pi.email %}<a href="mailto:{{ pi.email }}" target="_blank"><i class="fa fa-envelope-square fa-2x"></i></a> {% endif %}
+							{% if pi.cv %}<a href="{{ site.url }}{{ site.baseurl }}/{{ pi.cv }}" target="_blank" style="margin-left:10px;"><i class="ai ai-cv-square ai-2x"></i></a> {% endif %}
+							{% if pi.scholar %}<a href="{{ pi.scholar }}" target="_blank" style="margin-left:10px;"><i class="ai ai-google-scholar-square ai-2x"></i></a> {% endif %}
+							{% if pi.github %}<a href="{{ pi.github }}" target="_blank" style="margin-left:10px;"><i class="fa fa-github-square fa-2x"></i></a> {% endif %}
+							{% if pi.researchgate %}<a href="{{ pi.researchgate }}" target="_blank" style="margin-left:10px;"><i class="ai ai-researchgate-square ai-2x"></i></a> {% endif %}
+						</p>
 		</div>
 
 		<div class="col-sm-4">

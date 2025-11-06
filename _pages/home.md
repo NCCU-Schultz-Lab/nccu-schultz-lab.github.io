@@ -5,14 +5,7 @@ sitemap: false
 permalink: /
 ---
 
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/lab-logo.png" width="100%"/><br/>
- <br/>
-</center>
-</div>
-</div>
-<br/>
-
 ### Welcome!
+
+
+<a><img src="{{ site.url }}{{ site.baseurl }}/images/lab-logo-transparent.png" alt="{{ site.title }}" width="100%" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:5px;"/></a>

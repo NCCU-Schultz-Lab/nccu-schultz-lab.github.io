@@ -4,6 +4,8 @@
 
 $baseurl: "{{ site.url }}{{ site.baseurl }}";
 
+@import "theme-variables";
+
 // @import "variables";
 @import "bootstrap/bootstrap";
 // @import "syntax-highlighting";

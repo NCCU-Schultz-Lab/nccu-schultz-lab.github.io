@@ -1,6 +1,7 @@
 //
 // Basic Bootstrap table
 //
+@use "sass:map";
 
 .table {
   // Reset needed for nesting tables
@@ -159,7 +160,7 @@
 // Generate series of `.table-responsive-*` classes for configuring the screen
 // size of where your table will overflow.
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $breakpoint in map.keys($grid-breakpoints) {
   $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
   @include media-breakpoint-down($breakpoint) {

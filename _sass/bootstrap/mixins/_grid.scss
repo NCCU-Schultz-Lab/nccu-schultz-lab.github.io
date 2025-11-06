@@ -1,4 +1,5 @@
 // Grid system
+@use "sass:map";
 //
 // Generate semantic grid columns with these mixins.
 
@@ -66,7 +67,7 @@
 // any value of `$grid-columns`.
 
 @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint in map-keys($breakpoints) {
+  @each $breakpoint in map.keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
@@ -127,7 +128,7 @@
 }
 
 @mixin make-cssgrid($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint in map-keys($breakpoints) {
+  @each $breakpoint in map.keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
