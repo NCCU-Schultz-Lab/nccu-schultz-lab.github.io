@@ -34,8 +34,8 @@ iframe {
 
 <div class="jumbotron">
 <div class="col-md-12 col-sm-12">
-<h4>Example Research</h4>
+<h4>Research Details Pending...</h4>
 
-Example description
+Please check back later!
 </div>
 </div>
